@@ -27,7 +27,7 @@ RUN set -o errexit -o nounset \
   && ls -al . && ls -al build/libs/
 
 # Using openjdk:8 due to https://github.com/cloudfoundry-samples/spring-music/issues/38
-FROM openjdk:8-jdk as server
+FROM openjdk:11-jdk as server
 
 COPY --from=build /spring-music-master/build/libs/spring-music-master-1.0.jar /app/spring-music.jar
 COPY hack/start.sh /app/
